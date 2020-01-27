@@ -1,0 +1,32 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Josefin Sans', sans-serif;
+}
+.carasole-inner{
+	width: 100%;
+	height: 90vh;
+}
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+}
+.contact-form{
+	
+	background-size: cover;
+	background-image: url(images/5.jpg);
+}
+.foot{
+	background-color:light;
+	text-align:center;
+
+}
+
+
+
+
