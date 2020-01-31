@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin Area | Users</title>
+    <title>Admin Area | Pages</title>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
@@ -12,8 +12,7 @@
     <script src="http://cdn.ckeditor.com/4.6.1/standard/ckeditor.js"></script>
   </head>
   <body>
-
-    <nav class="navbar navbar-expand-sm bg-danger">
+<nav class="navbar navbar-expand-sm bg-danger">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -65,8 +64,7 @@
     <section id="breadcrumb">
       <div class="container">
         <ol class="breadcrumb">
-          <li><a href="index.html">Dashboard</a></li>
-          <li class="active">Users</li>
+          <li class="active">Dashboard</li>
         </ol>
       </div>
     </section>
@@ -77,11 +75,11 @@
           <div class="col-md-3">
             <div class="list-group">
               <a href="dashboard.php" class="list-group-item active main-color-bg">
-                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard
+                <span class="fas fa-cog" aria-hidden="true"></span> Dashboard
               </a>
-              <a href="pages.html" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Pages <span class="badge">12</span></a>
-              <a href="posts.html" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Posts <span class="badge">33</span></a>
-              <a href="users.html" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Users <span class="badge">203</span></a>
+              <a href="pages.html" class="list-group-item"><span class="fas fa-list-alt" aria-hidden="true"></span> Pages <span class="badge">12</span></a>
+              <a href="posts.html" class="list-group-item"><span class="fas fa-pencil-alt" aria-hidden="true"></span> Posts <span class="badge">33</span></a>
+              <a href="users.html" class="list-group-item"><span class="fas fa-users" aria-hidden="true"></span> Users <span class="badge">203</span></a>
             </div>
 
             <div class="well">
@@ -103,44 +101,44 @@
             <!-- Website Overview -->
             <div class="panel panel-default">
               <div class="panel-heading main-color-bg">
-                <h3 class="panel-title">Users</h3>
+                <h3 class="panel-title">Pages</h3>
               </div>
               <div class="panel-body">
                 <div class="row">
                       <div class="col-md-12">
-                          <input class="form-control" type="text" placeholder="Filter Users...">
+                          <input class="form-control" type="text" placeholder="Filter Pages...">
                       </div>
                 </div>
                 <br>
                 <table class="table table-striped table-hover">
                       <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Joined</th>
+                        <th>Title</th>
+                        <th>Published</th>
+                        <th>Created</th>
                         <th></th>
                       </tr>
                       <tr>
-                        <td>Jill Smith</td>
-                        <td>jillsmith@gmail.com</td>
+                        <td>Home</td>
+                        <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
                         <td>Dec 12, 2016</td>
                         <td><a class="btn btn-default" href="edit.html">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
                       </tr>
                       <tr>
-                        <td>Eve Jackson</td>
-                        <td>ejackson@yahoo.com</td>
+                        <td>About</td>
+                        <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
                         <td>Dec 13, 2016</td>
                         <td><a class="btn btn-default" href="edit.html">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
                       </tr>
                       <tr>
-                       <td>Stephanie Landon</td>
-                        <td>landon@yahoo.com</td>
-                        <td>Dec 14, 2016</td>
+                        <td>Services</td>
+                        <td><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
+                        <td>Dec 13, 2016</td>
                         <td><a class="btn btn-default" href="edit.html">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
                       </tr>
                       <tr>
-                        <td>Mike Johnson</td>
-                        <td>mjohnson@gmail.com</td>
-                        <td>Dec 15, 2016</td>
+                        <td>Contact</td>
+                        <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+                        <td>Dec 14, 2016</td>
                         <td><a class="btn btn-default" href="edit.html">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
                       </tr>
                     </table>

@@ -16,7 +16,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="index.php">The Bridge</a>
+  <a class="navbar-brand" href="home.php">The Bridge</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -31,10 +31,10 @@
           Donate
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="food.php">Food</a>
-          <a class="dropdown-item" href="clothes.php">Clothes</a>
+          <a class="dropdown-item" href="donate.php">Food</a>
+          <a class="dropdown-item" href="donate.php">Clothes</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="finance.php">Financial</a>
+          <a class="dropdown-item" href="donate.php">Financial</a>
         </div>
       </li>
       <li class="nav-item">

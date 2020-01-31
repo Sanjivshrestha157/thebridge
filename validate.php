@@ -14,7 +14,7 @@ if(isset($_POST['click']))
 	$email=$_POST['email'];
 	$phone=$_POST['phone'];
 	$psw=$_POST['psw'];
-	$sql="INSERT INTO users (user_name,email,password) VALUES ('$name','$email','$password')";
+	$sql="INSERT INTO users (user_name,email,password) VALUES ('$fname','$email','$psw')";
 	$query=mysqli_query($conn,$sql);
 	if($query)
 	{

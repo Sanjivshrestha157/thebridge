@@ -1,18 +1,44 @@
+<?php
+  session_start();
+  $server="localhost";
+  $username="root";
+  $password="";
+  $dbname="thebridge";
+
+  $conn=mysqli_connect($server,$username,$password,$dbname);
+  $_SESSION['email'];
+  $_SESSION['password'];
+  // $sql="SELECT email,password from users WHERE email='$email' AND password='$password'";
+  // $query=mysqli_query($conn,$sql);
+  if(!isset($_SESSION['email'])&&!isset($_SESSION['password']))
+  {
+    header("location:alogin.php");
+    exit();
+  }
+  // else
+  // {
+  //   header("location:dashboard.php");
+  //   exit();
+  // }
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin Area | Posts</title>
+    <title>Admin Area | Dashboard</title>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <script src="http://cdn.ckeditor.com/4.6.1/standard/ckeditor.js"></script>
   </head>
   <body>
 
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-expand-sm bg-danger">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -23,16 +49,16 @@
           </button>
           <a class="navbar-brand" href="#">AdminStrap</a>
         </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="index.html">Dashboard</a></li>
-            <li><a href="pages.html">Pages</a></li>
-            <li class="active"><a href="posts.html">Posts</a></li>
-            <li><a href="users.html">Users</a></li>
+        <div id="collapsibleNavbar" class="collapse navbar-collapse">
+          <ul class="navbar-nav navbar-text-dark">
+            <li class="nav-item"><a class="nav-link active" href="dashboard.php">Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link" href="pages.html">Pages</a></li>
+            <li class="nav-item"><a class="nav-link" href="posts.html">Posts</a></li>
+            <li class="nav-item"><a class="nav-link" href="users.html">Users</a></li>
           </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Welcome, Brad</a></li>
-            <li><a href="login.html">Logout</a></li>
+          <ul class="navbar-nav justify-content-end">
+            <span class="navbar-text">Welcome</span>
+            <li class="nav-item"><a class="nav-link" href="alogin.php">Logout</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -42,7 +68,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-10">
-            <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Posts<small>Manage Blog Posts</small></h1>
+            <h1><span class="fas fa-cog" aria-hidden="true"></span> Dashboard <small>Manage Your Site</small></h1>
           </div>
           <div class="col-md-2">
             <div class="dropdown create">
@@ -64,8 +90,7 @@
     <section id="breadcrumb">
       <div class="container">
         <ol class="breadcrumb">
-          <li><a href="index.html">Dashboard</a></li>
-          <li class="active">Posts</li>
+          <li class="active">Dashboard</li>
         </ol>
       </div>
     </section>
@@ -75,12 +100,12 @@
         <div class="row">
           <div class="col-md-3">
             <div class="list-group">
-              <a href="index.html" class="list-group-item active main-color-bg">
-                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard
+              <a href="dashboard.php" class="list-group-item active main-color-bg">
+                <span class="fas fa-cog" aria-hidden="true"></span> Dashboard
               </a>
-              <a href="pages.html" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Pages <span class="badge">12</span></a>
-              <a href="posts.html" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Posts <span class="badge">33</span></a>
-              <a href="users.html" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Users <span class="badge">203</span></a>
+              <a href="pages.html" class="list-group-item"><span class="fas fa-list-alt" aria-hidden="true"></span> Pages <span class="badge">4</span></a>
+              <a href="posts.html" class="list-group-item"><span class="fas fa-pencil-alt" aria-hidden="true"></span> Posts <span class="badge">2</span></a>
+              <a href="users.html" class="list-group-item"><span class="fas fa-users" aria-hidden="true"></span> Users <span class="badge">3</span></a>
             </div>
 
             <div class="well">
@@ -102,57 +127,83 @@
             <!-- Website Overview -->
             <div class="panel panel-default">
               <div class="panel-heading main-color-bg">
-                <h3 class="panel-title">Posts</h3>
+                <h3 class="panel-title">Website Overview</h3>
               </div>
               <div class="panel-body">
-                <div class="row">
-                      <div class="col-md-12">
-                          <input class="form-control" type="text" placeholder="Filter Posts...">
-                      </div>
+                <div class="col-md-3">
+                  <div class="well dash-box">
+                    <h2><span class="fas fa-users" aria-hidden="true"></span> 2</h2>
+                    <h4>Users</h4>
+                  </div>
                 </div>
-                <br>
-                <table class="table table-striped table-hover">
-                      <tr>
-                        <th>Title</th>
-                        <th>Published</th>
-                        <th>Created</th>
-                        <th></th>
-                      </tr>
-                      <tr>
-                        <td>Blog Post 1</td>
-                        <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-                        <td>Dec 12, 2016</td>
-                        <td><a class="btn btn-default" href="edit.html">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
-                      </tr>
-                      <tr>
-                        <td>Blog Post 2</td>
-                        <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-                        <td>Dec 13, 2016</td>
-                        <td><a class="btn btn-default" href="edit.html">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
-                      </tr>
-                      <tr>
-                        <td>Blog Post 3</td>
-                        <td><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
-                        <td>Dec 13, 2016</td>
-                        <td><a class="btn btn-default" href="edit.html">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
-                      </tr>
-                      <tr>
-                        <td>Blog Post 4</td>
-                        <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-                        <td>Dec 14, 2016</td>
-                        <td><a class="btn btn-default" href="edit.html">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
-                      </tr>
-                    </table>
+                <div class="col-md-3">
+                  <div class="well dash-box">
+                    <h2><span class="fas fa-list-alt" aria-hidden="true"></span> 4</h2>
+                    <h4>Pages</h4>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="well dash-box">
+                    <h2><span class="fas fa-pencil-alt" aria-hidden="true"></span> 2</h2>
+                    <h4>Posts</h4>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="well dash-box">
+                    <h2><span class="fas fa-stat" aria-hidden="true"></span>22</h2>
+                    <h4>Visitors</h4>
+                  </div>
+                </div>
               </div>
               </div>
 
+              <!-- Latest Users -->
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Latest Users</h3>
+                </div>
+                <div class="panel-body">
+                  <table class="table table-striped table-hover">
+                      <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Joined</th>
+                      </tr>
+                      <tr>
+                        <td>Sanjiv</td>
+                        <td>sss@gmail.com</td>
+                        <td>Dec 22, 2020</td>
+                      </tr>
+                      <tr>
+                        <td>Rabin</td>
+                        <td>ejackson@yahoo.com</td>
+                        <td>Dec 23, 2020</td>
+                      </tr>
+                      <tr>
+                        <td>Anumol</td>
+                        <td>anumol@gmail.com</td>
+                        <td>Dec 13, 2020</td>
+                      </tr>
+                      <tr>
+                        <td>Prabin</td>
+                        <td>prabin@yahoo.com</td>
+                        <td>Dec 14, 2020</td>
+                      </tr>
+                      <tr>
+                        <td>Ram Lamichhane</td>
+                        <td>Ram12@gmail.com</td>
+                        <td>Dec 15, 2020</td>
+                      </tr>
+                    </table>
+                </div>
+              </div>
           </div>
         </div>
       </div>
     </section>
 
     <footer id="footer">
-      <p>Copyright AdminStrap, &copy; 2017</p>
+      <p>Copyright AdminStrap, &copy; 2020</p>
     </footer>
 
     <!-- Modals -->
